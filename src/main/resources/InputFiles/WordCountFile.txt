@@ -1,0 +1,9 @@
+Kafka Streams is a client library for building applications and microservices,
+especially, where the input and output data are stored in Apache Kafka Clusters.
+Basically, with the benefits of Kafka’s server-side cluster technology, Kafka Streams combines
+the simplicity of writing and deploying standard Java and Scala applications on the client side.
+Kafka Stream can be easily embedded in any Java application and integrated with any existing packaging,
+deployment and operational tools that users have for their streaming applications because it is a simple and lightweight client library.
+There are no external dependencies on systems other than Apache Kafka itself as the internal messaging layer.
+In order to enable very fast and efficient stateful operations (windowed joins and aggregations), it supports the fault-tolerant local state.
+ 

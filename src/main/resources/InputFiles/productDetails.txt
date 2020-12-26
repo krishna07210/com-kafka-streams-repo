@@ -1,0 +1,9 @@
+Amazon-Electronics-TV
+Amazon-Electronics-Mobile
+Amazon-Electronics-Speakers
+Amazon-Electronics-TShirts
+Flipkart-Pantry-Aata
+Flipkart-Pantry-Oil
+Flipkart-Pantry-Tea
+Reliance-Pantry-Aata
+Reliance-Pantry-Honey
