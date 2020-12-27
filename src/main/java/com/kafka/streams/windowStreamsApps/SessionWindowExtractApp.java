@@ -1,12 +1,12 @@
 package com.kafka.streams.windowStreamsApps;
 
-import com.kafka.model.SimpleInvoice;
 import com.kafka.model.UserClicks;
-import com.kafka.producers.serde.AppSerdes;
+import com.kafka.serde.AppSerdes;
 import com.kafka.streams.TimestampExtractors.InvoiceTimeExtractor;
 import com.kafka.streams.common.CommonServices;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
+import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.kstream.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +23,10 @@ public class SessionWindowExtractApp {
     public static void main(String[] args) {
         final Logger logger = LoggerFactory.getLogger(SessionWindowExtractApp.class);
         final String topicName = "user-clicks";
+        final String stateStoreName = "session-window-state-store";
         final Properties streamConfig = CommonServices.getStreamConfigurationNoSerdes("SessionWindowExtractApp");
+        streamConfig.put(StreamsConfig.STATE_DIR_CONFIG, stateStoreName);
+        streamConfig.put(StreamsConfig.COMMIT_INTERVAL_MS_CONFIG, 0);
         StreamsBuilder streamsBuilder = new StreamsBuilder();
         KStream<String, UserClicks> KS0 = streamsBuilder.stream(topicName,
                 Consumed.with(AppSerdes.String(), AppSerdes.UserClicksRecord())

@@ -16,6 +16,9 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 
+/**
+ * State Store Example
+ */
 public class StreamingTableApp {
     public static void main(String[] args) {
         final String topicName = "stock-tick";

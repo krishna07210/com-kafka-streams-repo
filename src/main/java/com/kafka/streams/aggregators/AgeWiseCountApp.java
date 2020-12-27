@@ -1,6 +1,6 @@
-package com.kafka.streams.infiniteStreamsApps;
+package com.kafka.streams.aggregators;
 
-import com.kafka.producers.serde.AppSerdes;
+import com.kafka.serde.AppSerdes;
 import com.kafka.streams.common.CommonServices;
 import com.kafka.streams.transformations.stateless.GroupByTransformation;
 import org.apache.kafka.common.serialization.Serdes;

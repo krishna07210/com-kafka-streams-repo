@@ -1,12 +1,12 @@
 package com.kafka.streams.windowStreamsApps;
 
 import com.kafka.model.SimpleInvoice;
-import com.kafka.producers.serde.AppSerdes;
+import com.kafka.serde.AppSerdes;
 import com.kafka.streams.TimestampExtractors.InvoiceTimeExtractor;
 import com.kafka.streams.common.CommonServices;
-import com.kafka.streams.transformations.stateless.GroupByTransformation;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
+import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.kstream.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +20,10 @@ public class HoppingWindowExtractApp {
     public static void main(String[] args) {
         final Logger logger = LoggerFactory.getLogger(HoppingWindowExtractApp.class);
         final String topicName = "Store-invoices";
+        final String stateStoreName ="HoppingWindow-State-Store";
         final Properties streamConfig = CommonServices.getStreamConfigurationNoSerdes("HoppingWindowExtractApp");
+        streamConfig.put(StreamsConfig.STATE_DIR_CONFIG, stateStoreName);
+        streamConfig.put(StreamsConfig.COMMIT_INTERVAL_MS_CONFIG, 0);
         StreamsBuilder streamsBuilder = new StreamsBuilder();
         KStream<String, SimpleInvoice> KS0 = streamsBuilder.stream(topicName,
                 Consumed.with(AppSerdes.String(), AppSerdes.SimpleInvoiceRecord())

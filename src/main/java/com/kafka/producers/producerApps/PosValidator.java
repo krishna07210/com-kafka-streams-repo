@@ -1,8 +1,8 @@
 package com.kafka.producers.producerApps;
 
 import com.kafka.producers.common.ProducerConstants;
-import com.kafka.producers.serde.JsonDeserializer;
-import com.kafka.producers.serde.JsonSerializer;
+import com.kafka.serde.JsonDeserializer;
+import com.kafka.serde.JsonSerializer;
 import com.kafka.model.PosInvoice;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
-package com.kafka.producers.serde;
+package com.kafka.serde;
 
 import com.kafka.model.*;
 import org.apache.kafka.common.serialization.Serde;
@@ -153,4 +153,103 @@ public class AppSerdes extends Serdes {
         return serde;
     }
 
+
+    static final class PaymentRequestSerde extends Serdes.WrapperSerde<PaymentRequest> {
+        PaymentRequestSerde() {
+            super(new JsonSerializer<>(), new JsonDeserializer<>());
+        }
+    }
+
+    public static Serde<PaymentRequest> PaymentRequestRecord() {
+        PaymentRequestSerde serde = new PaymentRequestSerde();
+        Map<String, Object> serdeConfigs = new HashMap<>();
+        serdeConfigs.put(JsonDeserializer.VALUE_CLASS_NAME_CONFIG, PaymentRequest.class);
+        serde.configure(serdeConfigs, false);
+        return serde;
+    }
+
+    static final class PaymentConfirmationSerde extends Serdes.WrapperSerde<PaymentConfirmation> {
+        PaymentConfirmationSerde() {
+            super(new JsonSerializer<>(), new JsonDeserializer<>());
+        }
+    }
+
+    public static Serde<PaymentConfirmation> PaymentConfirmationRecord() {
+        PaymentConfirmationSerde serde = new PaymentConfirmationSerde();
+        Map<String, Object> serdeConfigs = new HashMap<>();
+        serdeConfigs.put(JsonDeserializer.VALUE_CLASS_NAME_CONFIG, PaymentConfirmation.class);
+        serde.configure(serdeConfigs, false);
+        return serde;
+    }
+
+    static final class AdClickSerde extends Serdes.WrapperSerde<AdClick> {
+        AdClickSerde() {
+            super(new JsonSerializer<>(), new JsonDeserializer<>());
+        }
+    }
+
+    public static Serde<AdClick> AdClickRecord() {
+        AdClickSerde serde = new AdClickSerde();
+        Map<String, Object> serdeConfigs = new HashMap<>();
+        serdeConfigs.put(JsonDeserializer.VALUE_CLASS_NAME_CONFIG, AdClick.class);
+        serde.configure(serdeConfigs, false);
+        return serde;
+    }
+
+    static final class AdInventoriesSerde extends Serdes.WrapperSerde<AdInventories> {
+        AdInventoriesSerde() {
+            super(new JsonSerializer<>(), new JsonDeserializer<>());
+        }
+    }
+
+    public static Serde<AdInventories> AdInventoryRecord() {
+        AdInventoriesSerde serde = new AdInventoriesSerde();
+        Map<String, Object> serdeConfigs = new HashMap<>();
+        serdeConfigs.put(JsonDeserializer.VALUE_CLASS_NAME_CONFIG, AdInventories.class);
+        serde.configure(serdeConfigs, false);
+        return serde;
+    }
+
+    static final class UserDetailsSerde extends Serdes.WrapperSerde<UserDetails> {
+        UserDetailsSerde() {
+            super(new JsonSerializer<>(), new JsonDeserializer<>());
+        }
+    }
+
+    public static Serde<UserDetails> UserDetailsRecord() {
+        UserDetailsSerde serde = new UserDetailsSerde();
+        Map<String, Object> serdeConfigs = new HashMap<>();
+        serdeConfigs.put(JsonDeserializer.VALUE_CLASS_NAME_CONFIG, UserDetails.class);
+        serde.configure(serdeConfigs, false);
+        return serde;
+    }
+
+
+    static final class UserLoginSerde extends Serdes.WrapperSerde<UserLogin> {
+        UserLoginSerde() {
+            super(new JsonSerializer<>(), new JsonDeserializer<>());
+        }
+    }
+
+    public static Serde<UserLogin> UserLoginRecord() {
+        UserLoginSerde serde = new UserLoginSerde();
+        Map<String, Object> serdeConfigs = new HashMap<>();
+        serdeConfigs.put(JsonDeserializer.VALUE_CLASS_NAME_CONFIG, UserLogin.class);
+        serde.configure(serdeConfigs, false);
+        return serde;
+    }
+
+    static final class ClickByNewTypeSerde extends Serdes.WrapperSerde<ClicksByNewsType> {
+        ClickByNewTypeSerde() {
+            super(new JsonSerializer<>(), new JsonDeserializer<>());
+        }
+    }
+
+    public static Serde<ClicksByNewsType> ClicksByNewsTypeRecord() {
+        ClickByNewTypeSerde serde = new ClickByNewTypeSerde();
+        Map<String, Object> serdeConfigs = new HashMap<>();
+        serdeConfigs.put(JsonDeserializer.VALUE_CLASS_NAME_CONFIG, ClicksByNewsType.class);
+        serde.configure(serdeConfigs, false);
+        return serde;
+    }
 }

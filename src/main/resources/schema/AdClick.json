@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "javaType": "com.kafka.model.AdClick",
+  "properties": {
+    "InventoryID": {
+      "type": "string"
+    }
+  }
+}

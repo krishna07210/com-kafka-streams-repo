@@ -1,11 +1,9 @@
 package com.kafka.streams.windowStreamsApps;
 
 import com.kafka.model.SimpleInvoice;
-import com.kafka.producers.serde.AppSerdes;
+import com.kafka.serde.AppSerdes;
 import com.kafka.streams.TimestampExtractors.InvoiceTimeExtractor;
 import com.kafka.streams.common.CommonServices;
-import com.kafka.streams.transformations.stateless.GroupByTransformation;
-import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.kstream.*;

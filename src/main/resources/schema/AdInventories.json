@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "javaType": "com.kafka.model.AdInventories",
+  "properties": {
+    "InventoryID": {
+      "type": "string"
+    },
+    "NewsType": {
+      "type": "string"
+    }
+  }
+}

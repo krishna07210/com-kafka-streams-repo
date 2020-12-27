@@ -1,10 +1,9 @@
 package com.kafka.streams.windowStreamsApps;
 
 import com.kafka.model.HeartBeat;
-import com.kafka.producers.serde.AppSerdes;
+import com.kafka.serde.AppSerdes;
 import com.kafka.streams.TimestampExtractors.AppTimestampExtractor;
 import com.kafka.streams.common.CommonServices;
-import com.kafka.streams.transformations.stateless.GroupByTransformation;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.kstream.*;
 import org.slf4j.Logger;
@@ -27,7 +26,7 @@ public class WindowSuppressHeartBearApp {
         StreamsBuilder streamsBuilder = new StreamsBuilder();
         KStream<String, HeartBeat> KS0 = streamsBuilder.stream(topicName,
                 Consumed.with(AppSerdes.String(), AppSerdes.HeartBeatRecord())
-                        .withTimestampExtractor(new AppTimestampExtractor()));
+                        .withTimestampExtractor(AppTimestampExtractor.HeartBeatRequest()));
 
         KTable<Windowed<String>, Long> KT01 =
                 KS0.groupByKey(Grouped.with(AppSerdes.String(), AppSerdes.HeartBeatRecord()))

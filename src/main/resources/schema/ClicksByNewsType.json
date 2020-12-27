@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "javaType": "com.kafka.model.ClicksByNewsType",
+  "properties": {
+    "NewsType": {
+      "type": "string"
+    },
+    "Clicks": {
+      "javaType": "java.lang.Long"
+    }
+  }
+}
