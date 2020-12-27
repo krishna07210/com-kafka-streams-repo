@@ -1,4 +1,4 @@
-package com.kafka.streams.streamsApps;
+package com.kafka.streams.infiniteStreamsApps;
 
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
@@ -16,7 +16,7 @@ import java.util.Properties;
 
 import static com.kafka.streams.common.CommonServices.getStreamConfiguration;
 
-public class WordCount {
+public class WordCountApp {
     public Topology createTopology() {
         StreamsBuilder builder = new StreamsBuilder();
         KStream<String, String> textLines = builder.stream("word-count-input");
@@ -31,9 +31,9 @@ public class WordCount {
     }
 
     public static void main(String[] args) {
-        final Logger logger = LoggerFactory.getLogger(WordCount.class);
+        final Logger logger = LoggerFactory.getLogger(WordCountApp.class);
         final Properties streamConfig = getStreamConfiguration("word-count-app");
-        WordCount wordCount = new WordCount();
+        WordCountApp wordCount = new WordCountApp();
         KafkaStreams streams = new KafkaStreams(wordCount.createTopology(),streamConfig);
         streams.start();
         Runtime.getRuntime().addShutdownHook(new Thread(streams::close));

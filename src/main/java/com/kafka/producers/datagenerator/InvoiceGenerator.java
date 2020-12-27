@@ -3,6 +3,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kafka.model.DeliveryAddress;
 import com.kafka.model.LineItem;
 import com.kafka.model.PosInvoice;
+import com.kafka.producers.common.ProducerConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +26,8 @@ public class InvoiceGenerator {
     }
 
     private InvoiceGenerator() {
-        String DATAFILE = "src/main/resources/schema/Invoice.json";
+        String DATAFILE = ProducerConstants.INVOICE_JSON_FILE;
+        logger.info("Datafile :: {}",DATAFILE);
         ObjectMapper mapper;
         invoiceIndex = new Random();
         invoiceNumber = new Random();
@@ -34,6 +36,7 @@ public class InvoiceGenerator {
         try {
             invoices = mapper.readValue(new File(DATAFILE), PosInvoice[].class);
         } catch (Exception e) {
+            logger.error("Exception:: {} ",e);
             throw new RuntimeException(e);
         }
     }

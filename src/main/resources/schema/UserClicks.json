@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "javaType": "com.kafka.model.UserClicks",
+  "properties": {
+    "UserID": {
+      "type": "string"
+    },
+    "CreatedTime": {
+      "type": "string"
+    },
+    "CurrentLink": {
+      "type": "string"
+    },
+    "NextLink": {
+      "type": "string"
+    }
+  }
+}

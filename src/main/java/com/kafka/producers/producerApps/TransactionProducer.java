@@ -23,10 +23,10 @@ public class TransactionProducer {
         logger.info("Creating Kafka Producer...");
         Properties props = new Properties();
         props.put(ProducerConfig.CLIENT_ID_CONFIG, applicationId);
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ProducerConstants.bootstrapServers);
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ProducerConstants.BOOTSTRAP_SERVERS);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, IntegerSerializer.class.getName());
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
-        props.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, ProducerConstants.transaction_id);
+        props.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, ProducerConstants.TRANSACTION_ID);
 
         KafkaProducer<Integer, String> producer = new KafkaProducer<>(props);
         producer.initTransactions();

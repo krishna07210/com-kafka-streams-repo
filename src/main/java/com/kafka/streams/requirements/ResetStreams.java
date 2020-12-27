@@ -1,4 +1,4 @@
-package com.kafka.streams.streamsApps;
+package com.kafka.streams.requirements;
 
 import com.kafka.streams.common.CommonServices;
 import org.apache.kafka.streams.StreamsBuilder;

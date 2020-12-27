@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "javaType": "com.kafka.model.Employee",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "department": {
+      "type": "string"
+    },
+    "salary": {
+      "type": "integer"
+    }
+  }
+}

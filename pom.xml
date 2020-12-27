@@ -8,6 +8,14 @@
     <artifactId>com-kafka-streams-repo</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <java.version>1.8</java.version>
+        <kafka.version>2.3.0</kafka.version>
+        <jersey.version>2.27</jersey.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
         <dependency>
@@ -37,7 +45,7 @@
             <artifactId>commons-io</artifactId>
             <version>1.3.2</version>
         </dependency>
-             <dependency>
+        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.5.4</version>
@@ -61,6 +69,25 @@
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>2.2</version>
+        </dependency>
+
+        <!--spark java framework for embedded  -->
+        <dependency>
+            <groupId>com.sparkjava</groupId>
+            <artifactId>spark-core</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <!-- javax.ws.rs  -->
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.1</version>
+        </dependency>
+        <!--Jeersey dependencies -->
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>${jersey.version}</version>
         </dependency>
     </dependencies>
     <build>
@@ -87,7 +114,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.kafka.streams.streamsApps.WordCountApp</mainClass>
+                            <mainClass>com.kafka.streams.infiniteStreamsApps.WordCountApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

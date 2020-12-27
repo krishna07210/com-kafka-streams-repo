@@ -1,4 +1,4 @@
-package com.kafka.streams.streamsApps;
+package com.kafka.streams.infiniteStreamsApps;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;

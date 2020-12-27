@@ -20,7 +20,7 @@ public class GenerateMessage {
         final String applicationId ="generate-message";
         Properties props = new Properties();
         props.put(ProducerConfig.CLIENT_ID_CONFIG, applicationId);
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ProducerConstants.bootstrapServers);
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ProducerConstants.BOOTSTRAP_SERVERS);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, IntegerSerializer.class.getName());
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
@@ -28,7 +28,7 @@ public class GenerateMessage {
 
         logger.info("Start sending messages...");
         for (int i = 1; i <= numEvents; i++) {
-            producer.send(new ProducerRecord<>(ProducerConstants.topicName, i, "Simple Message-" + i));
+            producer.send(new ProducerRecord<>(ProducerConstants.TOPIC_NAME, i, "Simple Message-" + i));
         }
         logger.info("Finished - Closing Kafka Producer.");
         producer.close();

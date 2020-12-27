@@ -22,7 +22,7 @@ public class DispatcherDemo {
         try {
             System.out.println("Start Dispatcher Demo");
             InputStream inputStream =
-                    FileUtil.class.getResource(ProducerConstants.kafkaConfigFileLocation).openStream();
+                    FileUtil.class.getResource(ProducerConstants.KAFKA_CONFIG_FILE_LOCATION).openStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             while (reader.ready()) {
                 String line = reader.readLine();
@@ -39,11 +39,11 @@ public class DispatcherDemo {
         }
 
         KafkaProducer<Integer, String> producer = new KafkaProducer<>(props);
-        Thread[] dispatchers = new Thread[ProducerConstants.eventFiles.length];
+        Thread[] dispatchers = new Thread[ProducerConstants.EVENT_FILES.length];
         logger.info("Starting Dispatcher threads...");
-        for (int i = 0; i < ProducerConstants.eventFiles.length; i++) {
-            logger.info("Start the Thread for File :: {} ", ProducerConstants.eventFiles[i]);
-            dispatchers[i] = new Thread(new Dispatcher(producer, topicName, ProducerConstants.eventFiles[i]));
+        for (int i = 0; i < ProducerConstants.EVENT_FILES.length; i++) {
+            logger.info("Start the Thread for File :: {} ", ProducerConstants.EVENT_FILES[i]);
+            dispatchers[i] = new Thread(new Dispatcher(producer, topicName, ProducerConstants.EVENT_FILES[i]));
             dispatchers[i].start();
         }
         try {

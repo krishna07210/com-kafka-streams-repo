@@ -1,4 +1,4 @@
-package com.kafka.streams.streamsApps;
+package com.kafka.streams.infiniteStreamsApps;
 
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.*;
@@ -28,7 +28,7 @@ public class WordCountAppTest {
         streamsConfiguration.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "dummy:9092");
         streamsConfiguration.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
         streamsConfiguration.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
-        WordCount wordCount = new WordCount();
+        WordCountApp wordCount = new WordCountApp();
         testDriver = new TopologyTestDriver(wordCount.createTopology(), streamsConfiguration);
     }
 

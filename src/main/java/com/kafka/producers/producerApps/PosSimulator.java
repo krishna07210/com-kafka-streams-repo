@@ -21,17 +21,12 @@ public class PosSimulator {
 
     public static void main(String[] args) {
         final String applicationId = "PosSimulator";
-//        if (args.length < 3) {
-//            System.out.println("Please provide command line arguments: topicName noOfProducers produceSpeed");
-//            System.exit(-1);
-//        }
-        String topicName = "pos"; //args[0];
-        int noOfProducers = 2; //new Integer(args[1]);
-        int produceSpeed = 3; //new Integer(args[2]);
-
+        String topicName = "pos";
+        int noOfProducers = 2;
+        int produceSpeed = 1000;
         Properties properties = new Properties();
         properties.put(ProducerConfig.CLIENT_ID_CONFIG, applicationId);
-        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ProducerConstants.bootstrapServers);
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ProducerConstants.BOOTSTRAP_SERVERS);
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 

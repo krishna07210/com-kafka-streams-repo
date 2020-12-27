@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "javaType": "com.kafka.model.HeartBeat",
+  "properties": {
+    "AppID": {
+      "type": "string"
+    },
+    "CreatedTime": {
+      "type": "string"
+    }
+  }
+}

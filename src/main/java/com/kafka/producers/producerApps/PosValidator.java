@@ -31,7 +31,7 @@ public class PosValidator {
         final String applicationId = "PosValidator";
         Properties consumerProps = new Properties();
         consumerProps.put(ConsumerConfig.CLIENT_ID_CONFIG, applicationId);
-        consumerProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, ProducerConstants.bootstrapServers);
+        consumerProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, ProducerConstants.BOOTSTRAP_SERVERS);
         consumerProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         consumerProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         consumerProps.put(JsonDeserializer.VALUE_CLASS_NAME_CONFIG, PosInvoice.class);
@@ -39,11 +39,11 @@ public class PosValidator {
         consumerProps.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 
         KafkaConsumer<String, PosInvoice> consumer = new KafkaConsumer<>(consumerProps);
-        consumer.subscribe(Arrays.asList(ProducerConstants.sourceTopicNames));
+        consumer.subscribe(Arrays.asList(ProducerConstants.SOURCE_TOPIC_NAMES));
 
         Properties producerProps = new Properties();
         producerProps.put(ProducerConfig.CLIENT_ID_CONFIG, applicationId);
-        producerProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ProducerConstants.bootstrapServers);
+        producerProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ProducerConstants.BOOTSTRAP_SERVERS);
         producerProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         producerProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 

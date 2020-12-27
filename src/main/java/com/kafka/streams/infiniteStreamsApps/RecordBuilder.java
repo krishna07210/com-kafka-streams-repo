@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
-package com.kafka.streams.streamsApps;
+package com.kafka.streams.infiniteStreamsApps;
 
 import com.kafka.model.HadoopRecord;
 import com.kafka.model.LineItem;

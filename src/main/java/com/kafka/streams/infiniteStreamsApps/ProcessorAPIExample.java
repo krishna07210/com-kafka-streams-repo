@@ -1,4 +1,4 @@
-package com.kafka.streams.streamsApps;
+package com.kafka.streams.infiniteStreamsApps;
 
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;

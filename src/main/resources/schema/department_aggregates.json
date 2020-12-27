@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "javaType": "com.kafka.model.DepartmentAggregate",
+  "properties": {
+    "total_salary": {
+      "type": "integer"
+    },
+    "employee_count": {
+      "type": "integer"
+    },
+    "avg_salary": {
+      "type": "number"
+    }
+  }
+}

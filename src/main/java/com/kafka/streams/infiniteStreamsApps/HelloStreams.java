@@ -1,4 +1,4 @@
-package com.kafka.streams.streamsApps;
+package com.kafka.streams.infiniteStreamsApps;
 
 import com.kafka.streams.common.StreamsConstants;
 import org.apache.kafka.common.serialization.Serdes;
@@ -20,7 +20,7 @@ public class HelloStreams {
         String topicName = "hello-producer-topic";
         Properties props = new Properties();
         props.put(StreamsConfig.APPLICATION_ID_CONFIG, applicationID);
-        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, StreamsConstants.bootstrapServers);
+        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, StreamsConstants.BOOTSTRAP_SERVERS);
         props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.Integer().getClass());
         props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
 

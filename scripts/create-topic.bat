@@ -1,15 +1,14 @@
-cd D:\KAFKA_HOME\kafka-cluster\kafka_Node1
-cd windows
+cd D:\KAFKA_HOME\kafka-cluster\kafka-broker-0
 
-echo Hi
 @echo off
-echo Please provide following Input to create the Topic :
-echo -----------------------------------------------------
-echo Pleae provide the Topic name - 
-set /p topic="" 
-echo Pleae provide the Replication Factor - 
-set /p rf="" 
-echo Please provide the Partition No -
+
+echo $$ Please enter the Following Inputs to create the Topic $$
+echo ###########################################################
+echo Please enter the TopicName ::
+set /p topic=""
+echo Please enter the Replication Factor ::
+set /p rf=""
+echo Please enter the No of Partitions ::
 set /p part=""
 echo kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor %rf% --partitions %part% --topic %topic%   
-kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor %rf% --partitions %part% --topic %topic%    >>  C:\Krishna\My_Learnings\KAFKA_HOME\TopicStatusLog.log
+.\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor %rf% --partitions %part% --topic %topic%

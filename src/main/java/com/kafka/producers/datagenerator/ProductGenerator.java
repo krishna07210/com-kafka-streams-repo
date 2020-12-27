@@ -1,6 +1,7 @@
 package com.kafka.producers.datagenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kafka.model.LineItem;
+import com.kafka.producers.common.ProducerConstants;
 
 import java.io.File;
 import java.util.Random;
@@ -16,7 +17,7 @@ class ProductGenerator {
     }
 
     private ProductGenerator() {
-        String DATAFILE = "src/main/resources/data/products.json";
+        String DATAFILE = ProducerConstants.PRODUCTS_JSON_FILE;
         ObjectMapper mapper = new ObjectMapper();
         random = new Random();
         qty = new Random();

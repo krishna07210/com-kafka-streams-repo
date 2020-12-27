@@ -34,17 +34,14 @@ public class RunnableProducer implements Runnable {
                 producer.send(new ProducerRecord<>(topicName, posInvoice.getStoreID(), posInvoice));
                 Thread.sleep(produceSpeed);
             }
-
         } catch (Exception e) {
             logger.error("Exception in Producer thread - " + id);
             throw new RuntimeException(e);
         }
-
     }
 
     void shutdown() {
         logger.info("Shutting down producer thread - " + id);
         stopper.set(true);
-
     }
 }
