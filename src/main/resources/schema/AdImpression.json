@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "javaType": "com.kafka.model.AdImpression",
+  "properties": {
+    "ImpressionID": {
+      "type": "string"
+    },
+    "Campaigner": {
+      "type": "string"
+    }
+  }
+}
